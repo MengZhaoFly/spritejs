@@ -158,6 +158,7 @@ export default class Layer extends Group {
 
   /* override */
   dispatchPointerEvent(event) {
+    if(event.type === 'click') console.log('layer dispatch', event);
     const type = event.type;
     if(type === 'mousedown' || type === 'mouseup' || type === 'mousemove') {
       const capturedTarget = this.__mouseCapturedTarget;

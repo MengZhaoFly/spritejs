@@ -300,6 +300,7 @@ export default class Node {
 
     const elements = [this];
     let parent = this.parent;
+    // bubbles 可冒泡？
     while(event.bubbles && parent) {
       elements.push(parent);
       parent = parent.parent;
@@ -337,6 +338,9 @@ export default class Node {
     }
   }
 
+  /**
+   * 具体判断 坐标是不是在 目标范围内
+   */
   dispatchPointerEvent(event) {
     const {x, y} = event;
     if(this.isPointCollision(x, y)) {

@@ -60,6 +60,9 @@ function drawImage(layer, offscreenLayer) {
 }
 
 const touchEventCapturedTargets = {};
+/*
+ * @param {*} scene 整个实例
+ */
 function delegateEvents(scene) {
   const events = ['mousedown', 'mouseup', 'mousemove', 'mousewheel', 'wheel',
     'touchstart', 'touchend', 'touchmove', 'touchcancel',
@@ -80,8 +83,14 @@ function delegateEvents(scene) {
     }
   }, {passive: true});
 
+  /**
+   * 最外层容器 绑定事件
+   */
   events.forEach((eventType) => {
     container.addEventListener(eventType, (event) => {
+      if(event.type !== 'click') return;
+      console.log('scene click', event);
+      debugger;
       const layers = scene.orderedChildren;
       const pointerEvents = createPointerEvents(event, {offsetLeft: left, offsetTop: top, displayRatio});
       pointerEvents.forEach((evt) => {
