@@ -117,25 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../node_modules/@babel/runtime/helpers/defineProperty.js":[function(require,module,exports) {
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
-module.exports = _defineProperty;
-module.exports["default"] = module.exports, module.exports.__esModule = true;
-},{}],"../node_modules/@babel/runtime/helpers/classCallCheck.js":[function(require,module,exports) {
+})({"../node_modules/@babel/runtime/helpers/classCallCheck.js":[function(require,module,exports) {
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
@@ -29671,6 +29653,24 @@ function _createClass(Constructor, protoProps, staticProps) {
 
 module.exports = _createClass;
 module.exports["default"] = module.exports, module.exports.__esModule = true;
+},{}],"../node_modules/@babel/runtime/helpers/defineProperty.js":[function(require,module,exports) {
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+module.exports = _defineProperty;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
 },{}],"../src/utils/attribute_value.js":[function(require,module,exports) {
 "use strict";
 
@@ -49678,7 +49678,6 @@ function delegateEvents(scene) {
     container.addEventListener(eventType, function (event) {
       if (event.type !== 'click') return;
       console.log('scene click', event);
-      debugger;
       var layers = scene.orderedChildren;
       var pointerEvents = (0, _pointerEvents.default)(event, {
         offsetLeft: left,
@@ -50609,8 +50608,6 @@ exports.version = version;
 },{"gl-matrix":"../node_modules/gl-matrix/esm/index.js","@mesh.js/core":"../node_modules/@mesh.js/core/dist/mesh.js","./utils/animation-frame":"../src/utils/animation-frame.js","./node/node":"../src/node/node.js","./node/cloud":"../src/node/cloud.js","./node/block":"../src/node/block.js","./node/sprite":"../src/node/sprite.js","./node/path":"../src/node/path.js","./node/rect":"../src/node/rect.js","./node/triangle":"../src/node/triangle.js","./node/parallel":"../src/node/parallel.js","./node/regular":"../src/node/regular.js","./node/star":"../src/node/star.js","./node/ellipse":"../src/node/ellipse.js","./node/arc":"../src/node/arc.js","./node/ring":"../src/node/ring.js","./node/polyline":"../src/node/polyline.js","./node/label":"../src/node/label.js","./node/group":"../src/node/group.js","./node/layer":"../src/node/layer.js","./node/spritesvg":"../src/node/spritesvg.js","./node/layer-worker":"../src/node/layer-worker.js","./node/scene":"../src/node/scene.js","./document":"../src/document/index.js","./utils/color":"../src/utils/color.js","./utils/attribute_value":"../src/utils/attribute_value.js","../package.json":"../package.json"}],"index.js":[function(require,module,exports) {
 "use strict";
 
-var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
-
 var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
@@ -50633,36 +50630,6 @@ var scene = new _index.Scene({
 });
 var layer = scene.layer();
 var setDefault = Symbol.for('spritejs_setAttributeDefault');
-
-var ButtonAttr =
-/*#__PURE__*/
-function (_Label$Attr) {
-  (0, _inherits2.default)(ButtonAttr, _Label$Attr);
-
-  function ButtonAttr(subject) {
-    var _this;
-
-    (0, _classCallCheck2.default)(this, ButtonAttr);
-    _this = (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(ButtonAttr).call(this, subject));
-
-    _this[setDefault]({
-      text: ' ',
-      fontSize: 36,
-      lineHeight: 48,
-      anchorX: 0.5,
-      anchorY: 0.5,
-      borderWidth: 1,
-      borderColor: 'black',
-      paddingRight: 10,
-      paddingLeft: 10,
-      textAlign: 'center'
-    });
-
-    return _this;
-  }
-
-  return ButtonAttr;
-}(_index.Label.Attr);
 
 var Button =
 /*#__PURE__*/
@@ -50689,17 +50656,17 @@ function (_Label) {
   return Button;
 }(_index.Label);
 
-(0, _defineProperty2.default)(Button, "Attr", ButtonAttr);
 var button = new Button({
   text: 'Click Me',
   pos: [600, 300]
 });
 layer.append(button);
+window.button = button;
 console.log(button);
 button.addEventListener('click', function () {
   console.log('button clicked');
 });
-},{"@babel/runtime/helpers/defineProperty":"../node_modules/@babel/runtime/helpers/defineProperty.js","@babel/runtime/helpers/classCallCheck":"../node_modules/@babel/runtime/helpers/classCallCheck.js","@babel/runtime/helpers/possibleConstructorReturn":"../node_modules/@babel/runtime/helpers/possibleConstructorReturn.js","@babel/runtime/helpers/getPrototypeOf":"../node_modules/@babel/runtime/helpers/getPrototypeOf.js","@babel/runtime/helpers/inherits":"../node_modules/@babel/runtime/helpers/inherits.js","gl-matrix":"../node_modules/gl-matrix/esm/index.js","../src/index":"../src/index.js"}],"../../../.npm-global/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/classCallCheck":"../node_modules/@babel/runtime/helpers/classCallCheck.js","@babel/runtime/helpers/possibleConstructorReturn":"../node_modules/@babel/runtime/helpers/possibleConstructorReturn.js","@babel/runtime/helpers/getPrototypeOf":"../node_modules/@babel/runtime/helpers/getPrototypeOf.js","@babel/runtime/helpers/inherits":"../node_modules/@babel/runtime/helpers/inherits.js","gl-matrix":"../node_modules/gl-matrix/esm/index.js","../src/index":"../src/index.js"}],"../../../.npm-global/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -50727,7 +50694,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62345" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49974" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

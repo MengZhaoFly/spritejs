@@ -8,27 +8,9 @@ const scene = new Scene({
 const layer = scene.layer();
 
 const setDefault = Symbol.for('spritejs_setAttributeDefault');
-class ButtonAttr extends Label.Attr {
-  constructor(subject) {
-    super(subject);
-    this[setDefault]({
-      text: ' ',
-      fontSize: 36,
-      lineHeight: 48,
-      anchorX: 0.5,
-      anchorY: 0.5,
-      borderWidth: 1,
-      borderColor: 'black',
-      paddingRight: 10,
-      paddingLeft: 10,
-      textAlign: 'center',
-    });
-  }
-}
+
 
 class Button extends Label {
-  static Attr = ButtonAttr;
-
   constructor(attrs = {}) {
     super(attrs);
     // this.addEventListener('mousedown', () => {
@@ -51,6 +33,8 @@ const button = new Button({
   pos: [600, 300],
 });
 layer.append(button);
+
+window.button = button;
 console.log(button);
 button.addEventListener('click', () => {
   console.log('button clicked');
